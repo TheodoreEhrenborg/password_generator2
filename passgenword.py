@@ -42,12 +42,13 @@ if args.short:
 elif args.large:
     path, expected = "data/eff_large_wordlist.txt", 7776
 else:
-    path, expected = "data/eff_medium_wordlist.txt", 1650
+    path, expected = "data/medium_wordlist.txt", 1650
 
 words = []
 with open(path) as f:
     for line in f:
-        # EFF lists have a dice-number column; the medium list is words only
+        # EFF lists have a dice-number column; the medium list (a modified
+        # EFF list with uncommon words swapped for common ones) is words only
         word = line.split()[-1]
         words.append(word)
 
