@@ -11,6 +11,8 @@ import sys
 letters = "abcdefghijklmnopqrstuvwxyz"
 assert len(letters) == 26
 assert len(set(letters)) == 26
+assert round(math.log2(26), 1) == 4.7
+assert round(14 * math.log2(26), 1) == 65.8
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument(
