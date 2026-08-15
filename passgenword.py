@@ -52,12 +52,16 @@ with open(path) as f:
         word = line.split()[-1]
         words.append(word)
 
-assert len(words) == expected
-assert len(set(words)) == expected
+# Hard checks, not asserts: these must survive python -O
+if len(words) != expected:
+    sys.exit(f"{path}: expected {expected} words, found {len(words)}")
+if len(set(words)) != expected:
+    sys.exit(f"{path}: wordlist contains duplicates")
 # Without this, a tampered list could contain Unicode homoglyph variants of
 # the same word: unique as bytes, but identical when the user reads and
 # retypes the passphrase, silently reducing effective entropy.
-assert all(word.isascii() for word in words)
+if not all(word.isascii() for word in words):
+    sys.exit(f"{path}: wordlist contains non-ASCII characters")
 
 entropy = args.words * math.log2(len(words))
 if entropy < 64:

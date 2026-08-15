@@ -9,10 +9,11 @@ import secrets
 import sys
 
 letters = "abcdefghijklmnopqrstuvwxyz"
-assert len(letters) == 26
-assert len(set(letters)) == 26
-assert round(math.log2(26), 1) == 4.7
-assert round(14 * math.log2(26), 1) == 65.8
+# Hard checks, not asserts: these must survive python -O
+if len(letters) != 26 or len(set(letters)) != 26:
+    sys.exit("alphabet is corrupted")
+if round(math.log2(26), 1) != 4.7 or round(14 * math.log2(26), 1) != 65.8:
+    sys.exit("entropy sanity check failed")
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument(
