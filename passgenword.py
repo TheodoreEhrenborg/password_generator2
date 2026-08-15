@@ -40,6 +40,7 @@ with open(path) as f:
 expected = 1296 if args.short else 7776
 assert len(words) == expected
 assert len(set(words)) == expected
+assert all(word.isascii() for word in words)
 
 entropy = args.words * math.log2(len(words))
 if entropy < 64:
