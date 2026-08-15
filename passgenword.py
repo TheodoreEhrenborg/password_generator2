@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
-"""Prints an xkcd-style passphrase of random words from an EFF wordlist.
-With the large list (7776 words, 12.9 bits/word), the default
-5 words have 64.6 bits of entropy. The short list (1296 words,
-10.3 bits/word) needs 7 words to exceed 64 bits."""
+"""Prints an xkcd-style passphrase of random words from a wordlist.
+The default 6 words from the medium list (1650 words, 10.7 bits/word)
+have 64.1 bits of entropy. The large list (7776 words, 12.9 bits/word)
+needs 5 words for 64.6 bits; the short list (1296 words, 10.3 bits/word)
+needs 7 for 72.4 bits."""
 import argparse
 import math
 import secrets
@@ -14,19 +15,19 @@ parser.add_argument(
     "-n",
     "--words",
     type=int,
-    default=5,
-    help="number of words in the passphrase (default: 5)",
+    default=6,
+    help="number of words in the passphrase (default: 6)",
 )
 group = parser.add_mutually_exclusive_group()
 group.add_argument(
     "--short",
     action="store_true",
-    help="use the short wordlist (1296 words) instead of the large one (7776)",
+    help="use the short wordlist (1296 words) instead of the medium one (1650)",
 )
 group.add_argument(
-    "--medium",
+    "--large",
     action="store_true",
-    help="use the medium wordlist (1650 words); 6 words give 64.1 bits",
+    help="use the large wordlist (7776 words); 5 words give 64.6 bits",
 )
 parser.add_argument(
     "-s",
@@ -38,10 +39,10 @@ args = parser.parse_args()
 
 if args.short:
     path, expected = "data/eff_short_wordlist_1.txt", 1296
-elif args.medium:
-    path, expected = "data/eff_medium_wordlist.txt", 1650
-else:
+elif args.large:
     path, expected = "data/eff_large_wordlist.txt", 7776
+else:
+    path, expected = "data/eff_medium_wordlist.txt", 1650
 
 words = []
 with open(path) as f:
