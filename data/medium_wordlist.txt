@@ -170,6 +170,7 @@ broil
 broke
 brook
 broom
+brown
 brunt
 brush
 brute
@@ -183,7 +184,6 @@ bulk
 bully
 bunch
 bunny
-bunt
 bush
 bust
 busy
