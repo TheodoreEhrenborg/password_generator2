@@ -40,6 +40,9 @@ with open(path) as f:
 expected = 1296 if args.short else 7776
 assert len(words) == expected
 assert len(set(words)) == expected
+# Without this, a tampered list could contain Unicode homoglyph variants of
+# the same word: unique as bytes, but identical when the user reads and
+# retypes the passphrase, silently reducing effective entropy.
 assert all(word.isascii() for word in words)
 
 entropy = args.words * math.log2(len(words))
