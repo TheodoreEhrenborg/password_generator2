@@ -17,10 +17,16 @@ parser.add_argument(
     default=5,
     help="number of words in the passphrase (default: 5)",
 )
-parser.add_argument(
+group = parser.add_mutually_exclusive_group()
+group.add_argument(
     "--short",
     action="store_true",
     help="use the short wordlist (1296 words) instead of the large one (7776)",
+)
+group.add_argument(
+    "--medium",
+    action="store_true",
+    help="use the medium wordlist (1650 words); 6 words give 64.1 bits",
 )
 parser.add_argument(
     "-s",
@@ -30,14 +36,20 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-path = "data/eff_short_wordlist_1.txt" if args.short else "data/eff_large_wordlist.txt"
+if args.short:
+    path, expected = "data/eff_short_wordlist_1.txt", 1296
+elif args.medium:
+    path, expected = "data/eff_medium_wordlist.txt", 1650
+else:
+    path, expected = "data/eff_large_wordlist.txt", 7776
+
 words = []
 with open(path) as f:
     for line in f:
-        dice, word = line.split()
+        # EFF lists have a dice-number column; the medium list is words only
+        word = line.split()[-1]
         words.append(word)
 
-expected = 1296 if args.short else 7776
 assert len(words) == expected
 assert len(set(words)) == expected
 # Without this, a tampered list could contain Unicode homoglyph variants of
