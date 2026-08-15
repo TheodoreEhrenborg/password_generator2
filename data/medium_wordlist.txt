@@ -17,7 +17,6 @@ aging
 agony
 ahead
 ahoy
-aide
 aids
 aim
 ajar
@@ -49,6 +48,7 @@ anew
 angel
 anger
 angle
+angry
 anime
 ankle
 annex
@@ -112,6 +112,7 @@ bath
 baton
 bats
 bird
+black
 blade
 blah
 blame
@@ -143,7 +144,6 @@ bogus
 boil
 bolt
 boned
-boney
 bonus
 bony
 book
@@ -154,8 +154,8 @@ boss
 botch
 both
 boxer
-boxy
 brave
+bread
 breed
 briar
 bribe
@@ -191,7 +191,6 @@ buzz
 cable
 cache
 cacti
-caddy
 cadet
 cage
 cake
@@ -217,8 +216,8 @@ chain
 chair
 chant
 chaos
-chaps
 charm
+chart
 chase
 cheap
 cheek
@@ -313,6 +312,7 @@ crate
 crave
 crawl
 crazy
+cream
 creed
 creme
 crepe
@@ -486,13 +486,13 @@ elk
 elm
 elope
 elude
-elves
 email
 ember
 emit
 empty
 emu
 ended
+enemy
 enjoy
 enter
 entry
@@ -566,6 +566,7 @@ flock
 floor
 flop
 floss
+flour
 flyer
 foam
 foe
@@ -581,7 +582,6 @@ foyer
 frail
 frame
 fray
-frays
 fresh
 fried
 frill
@@ -634,6 +634,7 @@ goal
 goat
 goes
 going
+gold
 golf
 gone
 gong
@@ -685,7 +686,6 @@ gush
 gusto
 gusty
 gut
-guts
 guy
 habit
 had
@@ -1112,6 +1112,7 @@ raft
 rage
 raid
 rail
+rain
 rake
 rally
 ramp
@@ -1119,7 +1120,6 @@ ranch
 range
 rank
 rant
-rants
 rare
 rash
 raven
@@ -1287,7 +1287,6 @@ skew
 skid
 skied
 skier
-skies
 skip
 skirt
 skit
@@ -1341,6 +1340,7 @@ sniff
 snore
 snort
 snout
+snow
 snowy
 snub
 snuff
@@ -1502,7 +1502,6 @@ trade
 train
 trait
 trap
-traps
 trash
 tray
 treat
@@ -1519,6 +1518,7 @@ truce
 truck
 trump
 trunk
+trust
 try
 tug
 tulip
@@ -1633,9 +1633,9 @@ yeast
 yelp
 yen
 yield
-yin
 yodel
 yoga
+young
 yoyo
 yummy
 zap
